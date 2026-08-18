@@ -1,0 +1,58 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1280px;height:640px;background:#0F0F12;font-family:'Inter Tight',sans-serif;
+ display:flex;flex-direction:column;justify-content:center;padding:0 84px;position:relative;overflow:hidden}
+body::before{content:'';position:absolute;top:-260px;right:-120px;width:900px;height:620px;
+ background:radial-gradient(ellipse at center,rgba(217,119,87,.22),transparent 66%);filter:blur(16px)}
+body::after{content:'';position:absolute;inset:0;
+ background-image:linear-gradient(#1A1A20 1px,transparent 1px),linear-gradient(90deg,#1A1A20 1px,transparent 1px);
+ background-size:64px 64px;opacity:.4;mask-image:radial-gradient(ellipse at 30% 60%,#000,transparent 72%)}
+.wrap{position:relative;z-index:2;display:flex;align-items:center;gap:64px}
+.left{flex:1}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.24em;text-transform:uppercase;
+ color:#D97757;font-weight:500;margin-bottom:20px}
+h1{font-size:62px;font-weight:600;color:#F4F4F6;letter-spacing:-.028em;line-height:1.02}
+h1 em{font-style:normal;color:#D97757}
+.sub{margin-top:22px;font-size:21px;color:#8C8C97;line-height:1.45;max-width:520px}
+.sub b{color:#C6C6D0;font-weight:500}
+.foot{margin-top:38px;display:flex;align-items:center;gap:12px}
+.pill{font-family:'JetBrains Mono',monospace;font-size:13px;color:#9A9AA6;background:#18181D;
+ border:1px solid #28282F;border-radius:7px;padding:8px 14px}
+.pill.k{color:#D97757;border-color:#3A2A24;background:#1B1512}
+.card{width:322px;background:#17171B;border:1px solid #2C2C34;border-radius:14px;overflow:hidden;
+ box-shadow:0 30px 70px -34px rgba(217,119,87,.55)}
+.bar{display:flex;gap:7px;padding:12px 15px;border-bottom:1px solid #232329;background:#141418}
+.dot{width:8px;height:8px;border-radius:50%;background:#2E2E36}
+.cb{padding:19px 20px;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.75}
+.h{color:#F2F2F4;font-weight:700;margin-bottom:8px}
+.l{color:#A7A7B2}.l s{text-decoration:none;color:#D3D3DB;font-weight:700}
+.ok{color:#78B58C}.no{color:#D9776F}
+.rl{border-top:1px solid #232329;margin:13px 0}
+.dim{color:#55555F}
+</style></head><body>
+<div class="wrap">
+ <div class="left">
+  <div class="eyebrow">~/.claude/CLAUDE.md</div>
+  <h1>Claude Code,<br>but it <em>talks back<br>properly</em></h1>
+  <div class="sub">One drop-in file. <b>Headings, bold, tables</b> — instead of a flat wall of plain text.</div>
+  <div class="foot"><span class="pill k">1 file</span><span class="pill">0 dependencies</span><span class="pill">CC BY 4.0</span></div>
+ </div>
+ <div class="card">
+  <div class="bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+  <div class="cb">
+   <div class="dim">&gt; why didn't it work?</div>
+   <div class="rl"></div>
+   <div class="h">🎯 Why it failed</div>
+   <div class="l"><span class="ok">✅</span> The file existed</div>
+   <div class="l"><span class="ok">✅</span> <s>settings.json</s> was set</div>
+   <div class="l"><span class="no">❌</span> <s>Never reached</s> the model</div>
+   <div class="rl"></div>
+   <div class="h">⚙️ The fix</div>
+   <div class="l">Use <s>CLAUDE.md</s> instead.</div>
+  </div>
+ </div>
+</div>
+</body></html>
