@@ -122,25 +122,23 @@ Read the whole thing: [`CLAUDE.md`](CLAUDE.md)
 
 ---
 
-## ⚠️ Why not an output style?
+## ⚠️ About output styles
 
-Claude Code has (had) a feature literally built for this: **output styles** — a markdown file in `~/.claude/output-styles/`, plus `"outputStyle": "MyStyle"` in `settings.json`.
+Claude Code ships a feature built for exactly this: **output styles** — a markdown file in `~/.claude/output-styles/`, plus `"outputStyle": "MyStyle"` in `settings.json`. **If it works for you, use it.**
 
-On **v2.1.179**, I set one up correctly and it **never reached the model** — the style content was nowhere in the system prompt. The `/output-style` command had already been removed from the CLI too.
+It did not work for me. On **v2.1.179, in the Claude Code desktop app**, I set one up correctly — file in place, `settings.json` pointing at it — and its content **never reached the model**: nothing from the style appeared in the system prompt. The `/output-style` command is gone from the CLI too.
 
-So if you tried an output style and nothing happened: **you are not crazy, and it is not your file.**
+To be precise about what I can and cannot claim: the machinery is **still very much inside the v2.1.179 binary** — `outputStyle`, `output-styles` and `keep-coding-instructions` all appear in it. So this is **not** "the feature was removed". It is "it silently did nothing in my setup, with no error and no warning".
 
-`CLAUDE.md`, on the other hand, is injected into every session wrapped in an explicit *"these instructions override any default behavior"*. That is the one that works.
+`CLAUDE.md` has no such ambiguity. It is injected into every session wrapped in an explicit *"these instructions override any default behavior"*, it behaves the same in the CLI and in the desktop app, and it can be scoped to a single project.
 
-| Method | Scope | Status |
+| Method | Scope | Notes |
 |---|---|---|
-| `~/.claude/CLAUDE.md` | All projects | ✅ **Works** — injected every session |
-| `./CLAUDE.md` | One project | ✅ **Works** — and wins over the global one |
-| `~/.claude/output-styles/*.md` | All projects | ❌ Not applied on v2.1.179 |
+| `~/.claude/CLAUDE.md` | All projects | ✅ Injected every session |
+| `./CLAUDE.md` | One project | ✅ Wins over the global one |
+| `~/.claude/output-styles/*.md` | All projects | ⚠️ Silently did nothing for me — try it, but this repo does not depend on it |
 
-*(An `output-styles/` copy ships here anyway, in case the feature comes back.)*
-
----
+*(An `output-styles/` copy ships here anyway, for setups where they do apply.)*
 
 ## 🔧 Tuning it
 
