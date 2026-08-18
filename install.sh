@@ -6,7 +6,7 @@
 #   ./install.sh concise            # a variant
 #   ./install.sh default --append   # append instead of replacing
 #
-# Variants: default | no-emoji | concise | chat-only | fr
+# Variants: default | no-emoji | concise | chat-only | fr | tr | az
 
 set -euo pipefail
 
@@ -16,11 +16,13 @@ APPEND="${2:-}"
 case "$VARIANT" in
   default)   FILE="CLAUDE.md" ;;
   fr)        FILE="CLAUDE.fr.md" ;;
+  tr)        FILE="CLAUDE.tr.md" ;;
+  az)        FILE="CLAUDE.az.md" ;;
   no-emoji)  FILE="variants/no-emoji.md" ;;
   concise)   FILE="variants/concise.md" ;;
   chat-only) FILE="variants/chat-only.md" ;;
   *) echo "  [!!] unknown variant: $VARIANT"
-     echo "       use: default | no-emoji | concise | chat-only | fr"; exit 1 ;;
+     echo "       use: default | no-emoji | concise | chat-only | fr | tr | az"; exit 1 ;;
 esac
 
 BASE="https://raw.githubusercontent.com/veax-project/claude-code-chatgpt-style/main"

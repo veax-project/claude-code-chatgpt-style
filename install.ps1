@@ -4,7 +4,7 @@
 .DESCRIPTION
     Backs up any existing ~/.claude/CLAUDE.md before writing, so nothing is lost.
 .PARAMETER Variant
-    default | no-emoji | concise | chat-only | fr
+    default | no-emoji | concise | chat-only | fr | tr | az
 .PARAMETER Append
     Append to your existing CLAUDE.md instead of replacing it.
 .EXAMPLE
@@ -13,7 +13,7 @@
     .\install.ps1 -Append
 #>
 param(
-    [ValidateSet('default','no-emoji','concise','chat-only','fr')]
+    [ValidateSet('default','no-emoji','concise','chat-only','fr','tr','az')]
     [string]$Variant = 'default',
     [switch]$Append
 )
@@ -23,6 +23,8 @@ $ErrorActionPreference = 'Stop'
 $paths = @{
     'default'   = 'CLAUDE.md'
     'fr'        = 'CLAUDE.fr.md'
+    'tr'        = 'CLAUDE.tr.md'
+    'az'        = 'CLAUDE.az.md'
     'no-emoji'  = 'variants/no-emoji.md'
     'concise'   = 'variants/concise.md'
     'chat-only' = 'variants/chat-only.md'

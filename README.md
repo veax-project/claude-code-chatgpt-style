@@ -96,6 +96,8 @@ Same idea, different dosage. Pick one, install it as your `CLAUDE.md`.
 | ✂️ [**concise**](variants/concise.md) | Structured, but **short** — answer first, no padding | You like the layout, not the length |
 | 💬 [**chat-only**](variants/chat-only.md) | Rich in conversation, **stripped down while coding** | You want warmth in chat, silence at work |
 | 🇫🇷 [**français**](CLAUDE.fr.md) | The default, written in French, with French tone rules | You talk to it in French |
+| 🇹🇷 [**türkçe**](CLAUDE.tr.md) | The default, written in Turkish, with Turkish tone rules | You talk to it in Turkish |
+| 🇦🇿 [**azərbaycanca**](CLAUDE.az.md) | The default, written in Azerbaijani, with Azerbaijani tone rules | You talk to it in Azerbaijani |
 
 <details>
 <summary><b>📄 See exactly what you are installing</b></summary>
