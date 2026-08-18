@@ -1,0 +1,70 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1280px;height:640px;background:#0F0F12;font-family:'Inter Tight',sans-serif;
+ display:flex;flex-direction:column;overflow:hidden;position:relative}
+body::before{content:'';position:absolute;top:-300px;left:50%;transform:translateX(-50%);
+ width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(217,119,87,.22),transparent 68%);filter:blur(20px)}
+.head{padding:38px 60px 22px;position:relative;z-index:1}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.22em;
+ text-transform:uppercase;color:#D97757;font-weight:500;margin-bottom:14px}
+h1{font-size:44px;font-weight:600;color:#F2F2F4;letter-spacing:-.022em;line-height:1.06}
+h1 em{font-style:normal;color:#D97757}
+.sub{margin-top:12px;font-size:17px;color:#8C8C97;font-weight:400;letter-spacing:-.005em}
+.grid{flex:1;display:grid;grid-template-columns:1fr 62px 1fr;gap:0;padding:4px 60px 40px;
+ align-items:stretch;position:relative;z-index:1}
+.pane{background:#17171B;border:1px solid #26262D;border-radius:13px;display:flex;flex-direction:column;overflow:hidden}
+.pane.after{border-color:#3A2A24;box-shadow:0 0 0 1px rgba(217,119,87,.10),0 22px 60px -30px rgba(217,119,87,.5)}
+.bar{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid #232329;background:#141418}
+.dot{width:9px;height:9px;border-radius:50%;background:#2E2E36}
+.tag{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;
+ text-transform:uppercase;color:#5E5E6B;font-weight:500}
+.after .tag{color:#D97757}
+.body{padding:20px 22px;font-family:'JetBrains Mono',monospace;font-size:13.2px;line-height:1.72;flex:1}
+.q{color:#5E5E6B}.q b{color:#D97757;font-weight:700}
+.hr{height:1px;background:#232329;margin:15px 0}
+.flat{color:#7A7A85}
+.h2{color:#F2F2F4;font-weight:700;font-size:14px;margin:2px 0 9px}
+.li{color:#A7A7B2;padding-left:2px}
+.li s{text-decoration:none;color:#C9C9D2;font-weight:700}
+.ok{color:#78B58C}.no{color:#D9776F}
+.rule{border-top:1px solid #232329;margin:12px 0}
+.arrow{display:flex;align-items:center;justify-content:center}
+.arrow span{width:34px;height:34px;border-radius:50%;background:#1C1C21;border:1px solid #33333C;color:#D97757;font-size:15px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace}
+</style></head><body>
+<div class="head">
+  <div class="eyebrow">~/.claude/CLAUDE.md</div>
+  <h1>Claude Code, but it <em>talks back properly</em></h1>
+  <div class="sub">One drop-in file. Headings, bold, tables and structure — instead of a flat wall of text.</div>
+</div>
+<div class="grid">
+  <div class="pane">
+    <div class="bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="tag">Default</span></div>
+    <div class="body">
+      <div class="q"><b>&gt;</b> why didn't my output style work?</div>
+      <div class="hr"></div>
+      <div class="flat">The output style isn't loaded on this<br>version. Put the rules in CLAUDE.md<br>instead, it's injected every session.</div><div style="height:26px"></div><div class="q"><b>&gt;</b> and how do I install it?</div><div class="hr"></div><div class="flat">Copy the file to ~/.claude/CLAUDE.md<br>then restart the session.</div>
+    </div>
+  </div>
+  <div class="arrow"><span>&rarr;</span></div>
+  <div class="pane after">
+    <div class="bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="tag">With this file</span></div>
+    <div class="body">
+      <div class="q"><b>&gt;</b> why didn't my output style work?</div>
+      <div class="hr"></div>
+      <div class="h2">🎯 Why it didn't work</div>
+      <div class="li">Your config was <s>correct but dead</s>:</div>
+      <div class="li"><span class="ok">✅</span> The file existed</div>
+      <div class="li"><span class="ok">✅</span> <s>settings.json</s> pointed at it</div>
+      <div class="li"><span class="no">❌</span> <s>It never reached the model</s></div>
+      <div class="rule"></div>
+      <div class="h2">⚙️ The fix</div>
+      <div class="li">Move the rules into <s>~/.claude/CLAUDE.md</s></div><div class="li">It's injected <s>every session</s>, with an</div><div class="li">explicit <i style="color:#8A8A95">override</i> wrapper. That one works.</div>
+    </div>
+  </div>
+</div>
+</body></html>

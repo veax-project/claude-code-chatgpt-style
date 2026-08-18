@@ -1,36 +1,33 @@
+<div align="center">
+
+<img src="assets/hero.png" alt="Claude Code, but it talks back properly" width="100%">
+
+<br><br>
+
 # Claude Code — ChatGPT-style responses
 
-Claude Code answers in **flat, terse plain text** by default. Great for a diff review, cold for everything else.
+**A single drop-in `CLAUDE.md` that makes Claude Code answer like ChatGPT.**<br>
+Headings, bold, tables, emoji anchors — instead of a flat wall of plain text.
 
-This repo is a drop-in `CLAUDE.md` that makes it answer like **ChatGPT** instead: headings, bold, bullet lists, tables, emoji anchors, and answers that actually explain themselves.
+<br>
 
-Because a lot of us don't only use Claude Code to fix a build — we ask it real questions, and a warmer tone just makes it nicer to talk to.
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-D97757?style=flat-square)](https://creativecommons.org/licenses/by/4.0/)
+[![For Claude Code](https://img.shields.io/badge/for-Claude%20Code-1B1B1F?style=flat-square)](https://claude.com/claude-code)
+[![One file](https://img.shields.io/badge/install-one%20file-3A3A44?style=flat-square)](#-install)
+
+</div>
+
+<br>
 
 ---
 
-## 🎯 Before / after
+## 🎯 Why
 
-**Before**
+Claude Code answers in **terse, flat plain text** by default. That's the right call for a diff review. It's a cold read for everything else.
 
-> The output style isn't loaded. Use CLAUDE.md instead.
+And a lot of us don't only use it to fix a build — we ask it real questions, we think out loud with it, we come back to it at 2am. A warmer, structured tone just makes that nicer.
 
-**After**
-
-> ## 🎯 Why it didn't work
->
-> Your config was **technically correct but dead**:
->
-> - ✅ The file existed
-> - ✅ `settings.json` pointed at it
-> - ❌ **But its content never reached the model**
->
-> ---
->
-> ## ⚙️ The fix
->
-> Move the rules into `~/.claude/CLAUDE.md` — that one is injected every session…
-
-Same information. One of them you actually want to read.
+This repo is that tone, in one file.
 
 ---
 
@@ -52,59 +49,73 @@ curl -o ~/.claude/CLAUDE.md https://raw.githubusercontent.com/veax-project/claud
 
 Both write the same file to the same place — `~/.claude/CLAUDE.md` — which applies to **all your projects**.
 
-No terminal? Just download `CLAUDE.md` from this repo and drop it in your `.claude` folder by hand. Same result.
+No terminal? Download [`CLAUDE.md`](CLAUDE.md) and drop it in your `.claude` folder by hand. Same result.
+
+> ⚠️ **Restart required.** `CLAUDE.md` is read when a session *starts*. Run `/clear` or open a new session — otherwise nothing changes.
 
 > 💾 **Already have a `~/.claude/CLAUDE.md`?** These commands **overwrite it**. Back it up first, or paste this file's content at the end of yours instead.
 
-### 📁 One project only
+<details>
+<summary><b>📄 See exactly what you're installing</b> (it's 40 lines of markdown, no code, no telemetry)</summary>
 
-Don't want it everywhere? Drop `CLAUDE.md` at the root of a single repo instead. The project file takes priority over the global one.
+<br>
 
-### 🇫🇷 French version
+It's a plain instruction file. It tells the model to use headings, bold key terms, bullet lists, tables and emoji section anchors, to elaborate rather than answer dryly — and to keep two ChatGPT habits *out*: opening flattery and agreeing with everything.
 
-`CLAUDE.fr.md` is the same style written in French, with French tone rules (`tu`, French phrasing).
-Download that file instead, and rename it to `CLAUDE.md`.
+Read the whole thing here: [`CLAUDE.md`](CLAUDE.md)
 
-> ⚠️ `CLAUDE.md` is read **when a session starts**. Run `/clear` or open a new session after installing — otherwise nothing changes.
+</details>
+
+### 📁 Only one project
+
+Drop [`CLAUDE.md`](CLAUDE.md) at the root of a single repo instead. The project file takes priority over the global one.
+
+### 🇫🇷 Version française
+
+[`CLAUDE.fr.md`](CLAUDE.fr.md) is the same style written in French, with French tone rules.
+Download that one instead and rename it to `CLAUDE.md`.
 
 ---
 
 ## ⚠️ Why not an output style?
 
-Claude Code has (had) a feature literally built for this: **output styles** — a markdown file in `~/.claude/output-styles/` plus `"outputStyle": "MyStyle"` in `settings.json`.
+Claude Code has (had) a feature literally built for this: **output styles** — a markdown file in `~/.claude/output-styles/`, plus `"outputStyle": "MyStyle"` in `settings.json`.
 
 On **v2.1.179**, I set one up correctly and it **never reached the model** — the style's content was nowhere in the system prompt. The `/output-style` command had already been removed from the CLI too.
 
-So if you tried an output style and nothing changed: **you're not crazy, and it's not your file.**
+So if you tried an output style and nothing happened: **you're not crazy, and it's not your file.**
 
-`CLAUDE.md`, on the other hand, is injected into every session with an explicit *"these instructions override any default behavior"* wrapper. That's the one that works.
+`CLAUDE.md`, on the other hand, is injected into every session wrapped in an explicit *"these instructions override any default behavior"*. That's the one that works.
 
-| Method | Status |
-|---|---|
-| `~/.claude/CLAUDE.md` | ✅ Works — injected every session |
-| `./CLAUDE.md` (project) | ✅ Works — per project |
-| `~/.claude/output-styles/*.md` | ❌ Not applied on v2.1.179 |
+| Method | Scope | Status |
+|---|---|---|
+| `~/.claude/CLAUDE.md` | All projects | ✅ **Works** — injected every session |
+| `./CLAUDE.md` | One project | ✅ **Works** — and wins over the global one |
+| `~/.claude/output-styles/*.md` | All projects | ❌ Not applied on v2.1.179 |
 
-*(An `output-styles/` copy is included anyway, in case the feature comes back.)*
+*(An `output-styles/` copy ships here anyway, in case the feature comes back.)*
 
 ---
 
 ## 🔧 Tuning it
 
-It's a plain markdown file — edit it. Some obvious knobs:
+It's plain markdown — open it and edit. The obvious knobs:
 
-- **Too many emojis?** Delete the whole `## Emojis` section.
-- **Too long?** Replace *"Elaborate"* with *"Stay concise — structure, don't pad."*
-- **Want it only for chat, not for code work?** Add: *"On a technical task, keep it minimal — this style applies to discussion."*
+| You want | Do this |
+|---|---|
+| 😵 Fewer emojis | Delete the whole `## Emojis` section |
+| ✂️ Shorter answers | Swap *"Elaborate"* for *"Stay concise — structure, don't pad"* |
+| 💬 Style only in chat, not while coding | Add *"On a technical task, keep it minimal"* |
+| 🎩 More formal | Remove the warmth line, keep the structure rules |
 
 ---
 
-## 📌 What it deliberately keeps out
+## 📌 What it deliberately leaves out
 
-Two things that make ChatGPT annoying are **not** in here:
+Two things that make ChatGPT tiring are **not** in here:
 
-- ❌ Opening flattery — no *"Great question!"*
-- ❌ Agreeing with everything — it still tells you when your idea is bad
+- ❌ **Opening flattery** — no *"Great question!"*
+- ❌ **Agreeing with everything** — it still tells you when your idea is bad
 
 Warm tone, not a yes-man.
 
@@ -116,8 +127,13 @@ Licensed under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)**.
 
 In plain English:
 
-- ✅ Use it, copy it, modify it, even commercially
+- ✅ Use it, copy it, modify it — commercially too
 - ✅ Ship it in your own setup, your team, your company
 - ⚠️ **If you republish or fork it, credit the original** and link back to this repo
 
 The whole point of this file is to be copied. Just don't pass it off as your own. 🙂
+
+<div align="center">
+<br>
+<sub>Built by <a href="https://github.com/veax-project">veax-project</a></sub>
+</div>
