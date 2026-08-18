@@ -36,28 +36,36 @@ Same information. One of them you actually want to read.
 
 ## 🚀 Install
 
-### Global (all your projects)
+Pick **one** command — the one matching your system. They both do the exact same thing.
 
-```bash
-curl -o ~/.claude/CLAUDE.md https://raw.githubusercontent.com/veax-project/claude-code-chatgpt-style/main/CLAUDE.md
-```
-
-On Windows (PowerShell):
+### 🪟 Windows (PowerShell)
 
 ```powershell
 curl.exe -o "$env:USERPROFILE\.claude\CLAUDE.md" https://raw.githubusercontent.com/veax-project/claude-code-chatgpt-style/main/CLAUDE.md
 ```
 
-### One project only
+### 🍎 macOS / 🐧 Linux
 
-Drop `CLAUDE.md` at the root of the repo you're working in.
+```bash
+curl -o ~/.claude/CLAUDE.md https://raw.githubusercontent.com/veax-project/claude-code-chatgpt-style/main/CLAUDE.md
+```
+
+Both write the same file to the same place — `~/.claude/CLAUDE.md` — which applies to **all your projects**.
+
+No terminal? Just download `CLAUDE.md` from this repo and drop it in your `.claude` folder by hand. Same result.
+
+> 💾 **Already have a `~/.claude/CLAUDE.md`?** These commands **overwrite it**. Back it up first, or paste this file's content at the end of yours instead.
+
+### 📁 One project only
+
+Don't want it everywhere? Drop `CLAUDE.md` at the root of a single repo instead. The project file takes priority over the global one.
 
 ### 🇫🇷 French version
 
-`CLAUDE.fr.md` is the same style, written in French, with `tu` and French tone rules.
-Rename it to `CLAUDE.md` to use it.
+`CLAUDE.fr.md` is the same style written in French, with French tone rules (`tu`, French phrasing).
+Download that file instead, and rename it to `CLAUDE.md`.
 
-> ⚠️ `CLAUDE.md` is read **when the session starts**. Run `/clear` or open a new session after installing.
+> ⚠️ `CLAUDE.md` is read **when a session starts**. Run `/clear` or open a new session after installing — otherwise nothing changes.
 
 ---
 
@@ -91,7 +99,7 @@ It's a plain markdown file — edit it. Some obvious knobs:
 
 ---
 
-## 📌 What it deliberately keeps
+## 📌 What it deliberately keeps out
 
 Two things that make ChatGPT annoying are **not** in here:
 
