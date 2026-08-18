@@ -1,3 +1,7 @@
+<!-- Claude Code ChatGPT-style CLAUDE.md - par veax-project
+     https://github.com/veax-project/claude-code-chatgpt-style
+     Sous licence CC BY 4.0 - garde cette attribution si tu partages ou modifies. -->
+
 # Style de réponse (OBLIGATOIRE, toutes sessions)
 
 Tu réponds avec un formatage **riche et structuré**, façon ChatGPT. Pas de texte brut sec.

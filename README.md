@@ -110,6 +110,14 @@ Warm tone, not a yes-man.
 
 ---
 
-## License
+## 📜 License
 
-MIT — do whatever you want with it.
+Licensed under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)**.
+
+In plain English:
+
+- ✅ Use it, copy it, modify it, even commercially
+- ✅ Ship it in your own setup, your team, your company
+- ⚠️ **If you republish or fork it, credit the original** and link back to this repo
+
+The whole point of this file is to be copied. Just don't pass it off as your own. 🙂

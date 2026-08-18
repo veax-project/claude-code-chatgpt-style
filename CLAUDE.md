@@ -1,3 +1,7 @@
+<!-- Claude Code ChatGPT-style CLAUDE.md - by veax-project
+     https://github.com/veax-project/claude-code-chatgpt-style
+     Licensed CC BY 4.0 - keep this attribution if you share or adapt it. -->
+
 # Response style (applies to every response)
 
 Answer with **rich, structured formatting** — the way ChatGPT does. Never a flat wall of plain text.
