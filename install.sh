@@ -4,7 +4,7 @@
 #
 #   ./install.sh                    # default style
 #   ./install.sh concise            # a variant
-#   ./install.sh default --append   # append instead of replacing
+#   ./install.sh --append          # append instead of replacing
 #
 # Variants: default | no-emoji | concise | chat-only | fr | tr | az
 
@@ -12,6 +12,8 @@ set -euo pipefail
 
 VARIANT="${1:-default}"
 APPEND="${2:-}"
+
+if [ "$VARIANT" = "--append" ]; then APPEND="--append"; VARIANT="default"; fi
 
 case "$VARIANT" in
   default)   FILE="CLAUDE.md" ;;

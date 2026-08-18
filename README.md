@@ -38,21 +38,17 @@ This repo is that tone, in one file. **No dependency, no extension, nothing runn
 
 Writes the default style to `~/.claude/CLAUDE.md`, which applies to **all your projects**.
 
-<details open>
-<summary><b>🪟 Windows (PowerShell)</b></summary>
-
-```powershell
-curl.exe -o "$env:USERPROFILE\.claude\CLAUDE.md" https://raw.githubusercontent.com/veax-project/claude-code-chatgpt-style/main/CLAUDE.md
-```
-</details>
-
-<details>
-<summary><b>🍎 macOS / 🐧 Linux</b></summary>
+#### 🍎 macOS / 🐧 Linux
 
 ```bash
 curl -o ~/.claude/CLAUDE.md https://raw.githubusercontent.com/veax-project/claude-code-chatgpt-style/main/CLAUDE.md
 ```
-</details>
+
+#### 🪟 Windows (PowerShell)
+
+```powershell
+curl.exe -o "$env:USERPROFILE\.claude\CLAUDE.md" https://raw.githubusercontent.com/veax-project/claude-code-chatgpt-style/main/CLAUDE.md
+```
 
 > 💾 **This overwrites an existing `~/.claude/CLAUDE.md`.** If you already have one, use the script below instead — it backs yours up first.
 
@@ -72,7 +68,7 @@ cd claude-code-chatgpt-style
 | 🪟 Windows, keep yours | `.\install.ps1 -Append` |
 | 🍎🐧 macOS / Linux | `./install.sh` |
 | 🍎🐧 A variant | `./install.sh concise` |
-| 🍎🐧 Keep yours | `./install.sh default --append` |
+| 🍎🐧 Keep yours | `./install.sh --append` |
 
 ### ✋ No terminal at all
 
